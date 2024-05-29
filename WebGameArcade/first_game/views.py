@@ -2,5 +2,5 @@ from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
 
 
-def main(request: HttpRequest):
-    return render(request, 'first_game/base.html')
+def keyboard_race(request: HttpRequest):
+    return render(request, 'first_game/keyboard-race.html')

@@ -1,0 +1,19 @@
+{% extends 'first_game/base.html' %}
+
+{% block title %}
+    Клава гонки
+{% endblock %}
+
+{% block components %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'first_game/css/styles.css' %}">
+    <script src="{% static 'first_game/js/script.js' %}" defer></script>
+{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="quote-display" id="quoteDisplay"></div>
+        <textarea id="quoteInput" class="quote-input" autofocus></textarea>
+    </div>
+{% endblock %}
