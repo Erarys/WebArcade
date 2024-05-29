@@ -3,7 +3,7 @@ from django.shortcuts import render
 
 
 def index(request: HttpRequest) -> HttpResponse:
-    return render(request, 'games/index.html')
+    return render(request, 'games/general-page.html')
 
 
 def keyboard_race(request: HttpRequest):

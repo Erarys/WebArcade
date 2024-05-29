@@ -1,0 +1,18 @@
+{% extends 'games/base.html' %}
+
+
+{% block title %}
+    Arcade Games
+{% endblock %}
+{% block components %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'games/css/style_1.css' %}">
+{% endblock %}
+
+{% block body %}
+    <header>
+        <h1>Arcade games</h1>
+        <h2>Развлекайся и развивайся</h2>
+        <a class="btn btn-primary" href="{% url 'games:keyboard' %}" role="button">Клавиатурные гонки</a>
+    </header>
+{% endblock %}

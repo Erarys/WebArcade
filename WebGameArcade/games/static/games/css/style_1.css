@@ -1,0 +1,12 @@
+body {
+    background-color: #323437;
+    font-size: 100px;
+    color: white;
+    margin: 0 auto;
+}
+
+header {
+    max-width: 1000px;
+    margin: 100px auto;
+    padding: 10px 0 40px 40px;
+}
