@@ -11,8 +11,14 @@
 
 {% block body %}
     <header>
-        <h1>Arcade games</h1>
-        <h2>Развлекайся и развивайся</h2>
-        <a class="btn btn-primary" href="{% url 'games:keyboard' %}" role="button">Клавиатурные гонки</a>
+        <div>
+            <h1>Arcade games</h1>
+            <h2>Развлекайся и развивайся</h2>
+            <div class="button_box">
+                <a href="{% url 'games:keyboard' %}" style="--clr:#1e9bff"><span>Клава гонки</span>
+                    <i></i></a>
+            </div>
+        </div>
+
     </header>
 {% endblock %}
