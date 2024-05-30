@@ -50,9 +50,10 @@ body, .quote-input {
 }
 
 .correct {
-    color: green;
+    color: #5fee2f;
 }
 
 .incorrect {
-    color: #db0303;
+    color: #ff1867;
+
 }
