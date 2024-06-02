@@ -5,5 +5,6 @@ app_name = 'games'
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('keyboard/', views.keyboard_race, name='keyboard'),
+    path('keyboard/', views.KeyboardRaceView.as_view(), name='keyboard'),
+    path('json/', views.JsonTestView.as_view(), name='json'),
 ]
