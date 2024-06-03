@@ -21,6 +21,24 @@ function getCookie(name) {
     return cookieValue;
 }
 
+function postJSON(data) {
+    const csrftoken = getCookie('csrftoken');
+
+    fetch("http://127.0.0.1:8000/json/", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "X-CSRFToken": csrftoken,
+        },
+        body: JSON.stringify({speed: data})
+    })
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById('root').innerText = JSON.stringify(data);
+        })
+        .catch(err => console.log(err));
+}
+
 quoteInputElement.addEventListener('input', () => {
     const arrayQuote = quoteDisplayElement.querySelectorAll('span')
     const arrayValue = quoteInputElement.value.split('')
@@ -44,36 +62,12 @@ quoteInputElement.addEventListener('input', () => {
     if (correct) {
         let speed = (text.length * 60) / parseInt(timer.textContent)
         workElement.innerText = "Ваша скорость " + speed + " " + text.length + " " + timer.textContent
-        const data = {
-            "speed": speed,
-        }
-        querySomething()
+        getNextQuote()
+        postJSON(speed)
+
     }
 })
 
-function querySomething(){
-    $.ajax({
-        type: "POST",
-        url: "http://127.0.0.1:8000/keyboard/",
-        headers: {
-            "Content-Type": "application/json",
-            "HTTP_GROUP_NAME": "groups_name",
-        },
-        data: {
-            "check_this": $('#this_field').val(),
-            "csrfmiddlewaretoken": getCookie("csrftoken"),
-        },
-        success: function(data){
-            console.log("success");
-            console.log(data);
-        },
-        failure: function(data){
-            console.log("failure");
-            console.log(data);
-        },
-    });
-    alert('marcusShep function ran.')
-}
 
 function getRandomQuote() {
     return fetch(RANDOM_QUOTE_API_URL)

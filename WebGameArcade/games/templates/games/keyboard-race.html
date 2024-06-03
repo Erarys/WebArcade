@@ -11,7 +11,8 @@
 {% endblock %}
 
 {% block body %}
-{#    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">#}
+    {% csrf_token %}
+    <div id="root"></div>
     <div class="work" id="work"></div>
     <div class="timer" id="timer"></div>
     <div class="container">
