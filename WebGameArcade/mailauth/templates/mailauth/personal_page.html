@@ -1,0 +1,10 @@
+{% extends 'mailauth/base.html' %}
+
+{% block title %}
+	Личная страница
+{% endblock %}
+
+{% block body %}
+	<h6>{{ user.email }}</h6>
+	<h6>{{ user.password }}</h6>
+{% endblock %}
