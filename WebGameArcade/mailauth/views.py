@@ -17,7 +17,7 @@ class PersonalPageView(View):
 class RegisterView(CreateView):
     form_class = CustomUserCreationForm
     template_name = 'mailauth/login.html'
-    success_url = reverse_lazy("games:index")
+    success_url = reverse_lazy("games:general")
 
     def form_valid(self, form):
         response = super().form_valid(form)

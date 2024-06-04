@@ -121,7 +121,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 AUTH_USER_MODEL = 'mailauth.CustomUser'
-LOGIN_REDIRECT_URL = reverse_lazy("games:index")
+LOGIN_REDIRECT_URL = reverse_lazy("games:general")
 LOGOUT_REDIRECT_URL = reverse_lazy("myauth:login")
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

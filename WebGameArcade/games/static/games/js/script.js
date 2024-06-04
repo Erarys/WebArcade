@@ -24,7 +24,7 @@ function getCookie(name) {
 function postJSON(data) {
     const csrftoken = getCookie('csrftoken');
 
-    fetch("http://127.0.0.1:8000/json/", {
+    fetch("http://127.0.0.1:8000/keyboard/", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
