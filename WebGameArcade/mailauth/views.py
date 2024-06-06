@@ -7,6 +7,7 @@ from django.views import View
 from django.views.generic import CreateView
 
 from mailauth.forms import CustomUserCreationForm
+from games.models import Point
 
 
 class PersonalPageView(View):
@@ -22,6 +23,8 @@ class RegisterView(CreateView):
     def form_valid(self, form):
         response = super().form_valid(form)
 
+        Point.objects.create(user=self.object)
+
         username = form.cleaned_data.get("email")
         password = form.cleaned_data.get("password1")
 
@@ -33,3 +36,4 @@ class RegisterView(CreateView):
         login(request=self.request, user=user)
 
         return response
+

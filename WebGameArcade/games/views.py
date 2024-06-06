@@ -8,7 +8,7 @@ from django.http import JsonResponse
 from .models import Point
 
 
-def index(request: HttpRequest) -> HttpResponse:
+def general_page(request: HttpRequest) -> HttpResponse:
     return render(request, 'games/general-page.html')
 
 
@@ -20,23 +20,15 @@ class KeyboardRaceView(View):
         user = request.user
         try:
             data = json.loads(request.body)
-            print(data)  # Печатает JSON-данные в консоль
-            Point.objects.create(user=request.user, record=data["speed"])
-            response_data = {'message': 'Data received', 'received_data': data}
-            # return render(request, 'games/keyboard-race.html')
-            return JsonResponse(response_data)
-        except json.JSONDecodeError:
-            return JsonResponse({'error': 'Invalid JSON'}, status=400)
+            last_record = Point.objects.get(user=user)
+            speed = data["speed"]
 
+            if speed > last_record.record:
+                last_record.record = speed
+                last_record.save()
 
-def my_view(request):
-    print("HELLOW")
-    if request.method == 'POST':
-        try:
-            data = json.loads(request.body)
-            print(data)  # Печатает JSON-данные в консоль
             response_data = {'message': 'Data received', 'received_data': data}
             return JsonResponse(response_data)
         except json.JSONDecodeError:
             return JsonResponse({'error': 'Invalid JSON'}, status=400)
-    return render(request, 'games/json-test.html')
+
