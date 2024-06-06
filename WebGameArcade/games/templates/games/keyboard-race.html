@@ -11,12 +11,14 @@
 {% endblock %}
 
 {% block body %}
-    {% csrf_token %}
-    <div id="root"></div>
-    <div class="work" id="work"></div>
-    <div class="timer" id="timer"></div>
-    <div class="container">
-        <div class="quote-display" id="quoteDisplay"></div>
-        <textarea id="quoteInput" class="quote-input" autofocus></textarea>
-    </div>
+    <section>
+        {% csrf_token %}
+        <div id="root"></div>
+        <div class="work" id="work"></div>
+        <div class="timer" id="timer"></div>
+        <div class="container">
+            <div class="quote-display" id="quoteDisplay"></div>
+            <textarea id="quoteInput" class="quote-input" autofocus></textarea>
+        </div>
+    </section>
 {% endblock %}

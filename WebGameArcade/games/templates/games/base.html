@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="{% static 'games/css/base.css' %}">
     {% block components %}
     {% endblock %}
-
 </head>
 <body>
 <header>
@@ -26,12 +25,12 @@
             <li><a href="#">About</a></li>
         </ul>
     </nav>
-    <a class="cta" href="{% url 'mailauth:personal_page' %}">
+    <a class="cta" href="{% url 'games:personal_page' %}">
         <button>User</button>
     </a>
 </header>
-{% block body %}
-    <h1>Base Body</h1>
-{% endblock %}
+    {% block body %}
+        <h1>Base Body</h1>
+    {% endblock %}
 </body>
 </html>

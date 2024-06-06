@@ -44,20 +44,28 @@ header {
 
 .nav_links li a {
     transition: all 0.3s ease 0s;
+    border-radius: 10px;
 }
 
 .nav_links li a:hover {
-    color: #1d90ef;
+    color: #ffffff;
+    letter-spacing: 0.15em;
+    border-radius: 10px;
+    padding: 5%;
+    box-shadow: 0 0 35px rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease 0s;
 }
 
 header button {
     padding: 9px 25px;
     background-color: #1d90ef;
     border: none;
-    border-radius: 50px;
+    border-radius: 10px;
     cursor: pointer;
     transition: all 0.3s ease 0s;
 }
+
 header button:hover {
     background-color: rgba(30, 155, 255, 0.8);
+
 }

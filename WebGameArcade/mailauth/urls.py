@@ -1,12 +1,11 @@
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import path
 
-from mailauth.views import PersonalPageView, RegisterView
+from mailauth.views import RegisterView
 
 app_name = 'mailauth'
 
 urlpatterns = [
-    path("profile/", PersonalPageView.as_view(), name="personal_page"),
     path(
         "login/",
         LoginView.as_view(

@@ -1,0 +1,24 @@
+{% extends 'games/base.html' %}
+
+{% block title %}
+    Личная страница
+{% endblock %}
+{% block components %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'games/css/styles-personal-page.css' %}">
+{% endblock %}
+{% block body %}
+    <section>
+        {% if user.is_authenticated %}
+            <h1></h1>
+            <h1>{{ user.email }}</h1>
+            <h1>{{ user.username }}</h1>
+        {% else %}
+            <h1>Вы не авторизованы</h1>
+            <div>
+                <a href="{% url 'mailauth:login' %}">Авторизация</a>
+                <a href="{% url 'mailauth:register' %}">Регистрация</a>
+            </div>
+        {% endif %}
+    </section>
+{% endblock %}

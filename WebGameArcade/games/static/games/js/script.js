@@ -61,7 +61,7 @@ quoteInputElement.addEventListener('input', () => {
     })
     if (correct) {
         let speed = (text.length * 60) / parseInt(timer.textContent)
-        workElement.innerText = "Ваша скорость " + speed + " " + text.length + " " + timer.textContent
+        workElement.innerText = "Ваша скорость " + parseInt(speed) + " зн/мн"
         getNextQuote()
         postJSON(speed)
 

@@ -1,18 +1,9 @@
 from django.contrib.auth import authenticate, login
-from django.contrib.auth.forms import UserCreationForm
-from django.http import HttpRequest, HttpResponse
-from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views import View
 from django.views.generic import CreateView
 
 from mailauth.forms import CustomUserCreationForm
 from games.models import Point
-
-
-class PersonalPageView(View):
-    def get(self, request: HttpRequest) -> HttpResponse:
-        return render(request, 'mailauth/personal_page.html')
 
 
 class RegisterView(CreateView):

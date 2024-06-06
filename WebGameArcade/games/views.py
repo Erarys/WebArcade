@@ -18,6 +18,8 @@ class KeyboardRaceView(View):
 
     def post(self, request: HttpRequest) -> HttpResponse:
         user = request.user
+        if not request.user.is_authenticated:
+            return HttpResponse("You are not logged in!")
         try:
             data = json.loads(request.body)
             last_record = Point.objects.get(user=user)
@@ -32,3 +34,7 @@ class KeyboardRaceView(View):
         except json.JSONDecodeError:
             return JsonResponse({'error': 'Invalid JSON'}, status=400)
 
+
+class PersonalPageView(View):
+    def get(self, request: HttpRequest) -> HttpResponse:
+        return render(request, 'games/personal_page.html')
