@@ -10,9 +10,29 @@
 {% block body %}
     <section>
         {% if user.is_authenticated %}
-            <h1></h1>
-            <h1>{{ user.email }}</h1>
-            <h1>{{ user.username }}</h1>
+            <div>
+                <form method="post">
+                    {% csrf_token %}
+                    <p>
+                        <label for="first_name">Ваше имя</label>
+                        <input type="text" name="first_name" id="first_name" placeholder="{{ user.first_name }}">
+                    </p>
+                    <p>
+                        <label for="last_name">Ваше фамилия</label>
+                        <input type="text" name="last_name" id="last_name" placeholder="{{ user.last_name }}">
+                    </p>
+                    <p>
+                        <label for="">Ваша почта</label>
+                        <input type="text" name="email" id="email" placeholder="{{ user.email }}">
+                    </p>
+                    <p>Ваш рекорд {{ user.point.record }} симв/мин</p>
+                    <input type="submit">
+                </form>
+
+                {#                <h1>{{ user.email }}</h1>#}
+                {#                <h1>{{ user.username }}</h1>#}
+                {#                <h1>{{ user.point.record }}</h1>#}
+            </div>
         {% else %}
             <h1>Вы не авторизованы</h1>
             <div>
