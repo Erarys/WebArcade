@@ -1,5 +1,9 @@
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import HttpRequest, HttpResponse
 from django.urls import reverse_lazy
+from django.shortcuts import render, redirect, reverse
+from django.views import View
 from django.views.generic import CreateView
 
 from mailauth.forms import CustomUserCreationForm
@@ -28,3 +32,8 @@ class RegisterView(CreateView):
 
         return response
 
+class LogoutView(View):
+    def get(self, request: HttpRequest) -> HttpResponse:
+        logout(request)
+        url = reverse('mailauth:login')
+        return redirect(url)

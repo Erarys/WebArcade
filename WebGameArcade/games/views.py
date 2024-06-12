@@ -1,13 +1,11 @@
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, reverse, redirect
-from django.views import View
-from django.views.decorators.csrf import csrf_exempt
-import json
 from django.http import JsonResponse
-from django.views.generic import UpdateView
+from django.views import View
 
+from mailauth.forms import CustomUserUpdateForm
 from .models import Point
-from mailauth.models import CustomUser
+import json
 
 
 def general_page(request: HttpRequest) -> HttpResponse:
@@ -39,17 +37,17 @@ class KeyboardRaceView(View):
 
 class PersonalPageView(View):
     def get(self, request: HttpRequest) -> HttpResponse:
+        if request.user.is_authenticated:
+            context = {
+                "form": CustomUserUpdateForm(instance=request.user)
+            }
+            return render(request, 'games/personal_page.html', context=context)
         return render(request, 'games/personal_page.html')
 
     def post(self, request: HttpRequest) -> HttpResponse:
-        form = request.POST
-        user = CustomUser.objects.get(pk=request.user.pk)
-        if form['first_name']:
-            user.first_name = form['first_name']
-        if form['last_name']:
-            user.last_name = form['last_name']
-        if form['email']:
-            user.email = form['email']
-        user.save()
-        url = reverse('games:personal_page')
-        return redirect(url)
+        form = CustomUserUpdateForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            url = reverse('games:personal_page')
+            return redirect(url)
+        return render(request, 'games/personal_page.html', context={'form': form})

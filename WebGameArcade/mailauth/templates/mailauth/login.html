@@ -1,13 +1,15 @@
 {% extends 'mailauth/base.html' %}
 
 {% block title %}
-	Войти
+    Войти
 {% endblock %}
 
 {% block body %}
-    <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button>Войти</button>
-    </form>
+    <section>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-primary">Войти</button>
+        </form>
+    </section>
 {% endblock %}

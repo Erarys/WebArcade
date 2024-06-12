@@ -3,3 +3,12 @@ section {
     color: white;
 
 }
+
+.button_email {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.button_email a {
+    margin-left: 10px;
+}

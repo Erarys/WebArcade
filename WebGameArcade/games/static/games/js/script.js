@@ -34,7 +34,7 @@ function postJSON(data) {
     })
         .then(res => res.json())
         .then(data => {
-            document.getElementById('root').innerText = JSON.stringify(data);
+            // document.getElementById('root').innerText = JSON.stringify(data);
         })
         .catch(err => console.log(err));
 }

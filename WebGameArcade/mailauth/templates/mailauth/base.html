@@ -15,6 +15,14 @@
     {% endblock %}
 </head>
 <body>
+<header>
+    <nav>
+        <ul class="nav_links">
+            <a href="{% url 'games:general' %}"><img class="logo" src="{% static 'games/img/arcade.png' %}"></a>
+            <li><h2>Arcade games</h2></li>
+        </ul>
+    </nav>
+</header>
 {% block body %}
     <h1>Base body</h1>
 {% endblock %}
