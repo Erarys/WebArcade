@@ -11,5 +11,9 @@
             {{ form.as_p }}
             <button class="btn btn-primary">Войти</button>
         </form>
+        <div class="auth_button">
+            <button class="btn btn-secondary"><a href="{% url 'mailauth:register' %}">Регистрация</a></button>
+            <button class="btn btn-success"><a href="{% url 'mailauth:login' %}">Авторизация</a></button>
+        </div>
     </section>
 {% endblock %}
