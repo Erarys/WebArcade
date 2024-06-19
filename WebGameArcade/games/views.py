@@ -53,3 +53,13 @@ class PersonalPageView(View):
             url = reverse('games:personal_page')
             return redirect(url)
         return render(request, 'games/personal_page.html', context={'form': form})
+
+
+class AboutWebsiteView(View):
+    def get(self, request: HttpRequest) -> HttpResponse:
+        return render(request, 'games/about_website.html')
+
+
+class ProjectsView(View):
+    def get(self, request: HttpRequest) -> HttpResponse:
+        return render(request, 'games/projects.html')

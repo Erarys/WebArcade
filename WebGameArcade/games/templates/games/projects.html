@@ -1,0 +1,29 @@
+{% extends 'games/base.html' %}
+
+{% block title %}
+    Проекты
+{% endblock %}
+
+{% block components %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'games/css/styles-projects.css' %}">
+{% endblock %}
+
+{% block body %}
+    <section>
+        <h1>Сделанные проекты:</h1>
+        <h4>
+            <a href="https://github.com/Erarys/WebArcade">WebArcade</a>
+            - Данный сайт предназначен для саморазвития
+            путем игр.
+        </h4>
+        <h4>
+            <a href="https://github.com/Erarys/PythonTelegramBot">TelegramBot</a>
+            - Это бот для Telegram, который выполняет telegram версию реального веб магазина электроники.
+        </h4>
+        <h4>
+            <a href="https://github.com/Erarys/DjangoSite">DjangoSite</a>
+            Веб сайт сделанный на основе популярных интернет магазинов мебели.
+        </h4>
+    </section>
+{% endblock %}

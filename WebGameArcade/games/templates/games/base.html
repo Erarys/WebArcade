@@ -21,8 +21,8 @@
         <ul class="nav_links">
             <a href="{% url 'games:general' %}"><img class="logo" src="{% static 'games/img/arcade.png' %}"></a>
             <li><a href="#">Services</a></li>
-            <li><a href="#">Projects</a></li>
-            <li><a href="#">About</a></li>
+            <li><a href="{% url 'games:projects' %}">Projects</a></li>
+            <li><a href="{% url 'games:about' %}">About</a></li>
         </ul>
     </nav>
     <a class="cta" href="{% url 'games:personal_page' %}">

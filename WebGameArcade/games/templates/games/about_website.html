@@ -1,0 +1,20 @@
+{% extends 'games/base.html' %}
+
+{% block title %}
+    О сайте
+{% endblock %}
+{% block components %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'games/css/styles-about-website.css' %}">
+{% endblock %}
+{% block body %}
+    <section>
+        <h1>Добро пожаловать в наш сайт :)</h1>
+        <h4>
+            Главный архитектор: Абылкасым Ерарыс Айбекулы
+        </h4>
+        <ul>
+            <li>Добавлен режим клавиратурной гонки.</li>
+        </ul>
+    </section>
+{% endblock %}
