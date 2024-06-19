@@ -32,6 +32,7 @@ class RegisterView(CreateView):
 
         return response
 
+
 class LogoutView(View):
     def get(self, request: HttpRequest) -> HttpResponse:
         logout(request)

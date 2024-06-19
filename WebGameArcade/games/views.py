@@ -4,6 +4,7 @@ from django.http import JsonResponse
 from django.views import View
 
 from mailauth.forms import CustomUserUpdateForm
+from mailauth.models import CustomUser
 from .models import Point
 import json
 
@@ -39,7 +40,8 @@ class PersonalPageView(View):
     def get(self, request: HttpRequest) -> HttpResponse:
         if request.user.is_authenticated:
             context = {
-                "form": CustomUserUpdateForm(instance=request.user)
+                "form": CustomUserUpdateForm(instance=request.user),
+                "points": Point.objects.select_related("user").order_by('-record')[:5]
             }
             return render(request, 'games/personal_page.html', context=context)
         return render(request, 'games/personal_page.html')

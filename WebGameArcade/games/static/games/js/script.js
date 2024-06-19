@@ -4,7 +4,6 @@ const quoteInputElement = document.getElementById('quoteInput')
 const timerElement = document.getElementById('timer')
 const workElement = document.getElementById('work')
 
-
 function getCookie(name) {
     let cookieValue = null;
     if (document.cookie && document.cookie !== '') {

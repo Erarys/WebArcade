@@ -20,8 +20,6 @@
                         <a href="{% url 'mailauth:logout' %}" class="btn btn-warning">Выйти</a>
                     </div>
                 </form>
-
-
             </div>
         {% else %}
             <h1>Вы не авторизованы</h1>
@@ -30,5 +28,20 @@
                 <a href="{% url 'mailauth:register' %}">Регистрация</a>
             </div>
         {% endif %}
+        <div class="user_records">
+            <h1>Рекорды людей</h1>
+            {% for point in points %}
+                <p>
+                    {{ forloop.counter }}.
+                    {% if point.user.first_name %}
+                        {{ point.user.first_name }}
+                    {% else %}
+                        Anonymous
+                    {% endif %}
+                    - {{ point.record }}
+                </p>
+            {% endfor %}
+
+        </div>
     </section>
 {% endblock %}
